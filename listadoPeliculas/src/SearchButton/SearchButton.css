@@ -1,0 +1,43 @@
+/* 🔹 Botón de búsqueda */
+.search-btn {
+  top: 15px;
+  font-family: "Euclid Circular A", "Poppins";
+  margin: 16px;
+  color: white;
+  cursor: pointer;
+}
+.search-btn:hover {
+  color: rgb(255 255 255 / 30%);
+}
+
+/* 🔹 Modal de búsqueda */
+.search-modal {
+  position: fixed; /* Permite que esté sobre todo sin afectar el scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 20, 38, 0.50);
+  backdrop-filter: blur(8px); /* Agrega un desenfoque elegante */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  color: white;
+  z-index: 10; /* Asegura que esté encima */
+  overflow-y: auto; /* Permite hacer scroll si el contenido es largo */
+}
+
+/* 🔹 Botón cerrar */
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 15;
+}
