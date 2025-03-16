@@ -29,8 +29,14 @@ export class MovieModel {
 
       // Insertar la nueva película
       const [result] = await connection.query(
-        "INSERT INTO movie (id, title, year, poster, genre, director, actors, plot, rating, runtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [id, title, year, poster, genreId, director, actors, plot, rating, runtime]
+        "INSERT INTO movie (id, title, year, poster, director, actors, plot, rating, runtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [id, title, year, poster, director, actors, plot, rating, runtime]
+      );
+
+      // Insertar genero-pelicula
+      const [movie_genre] = await connection.query(
+        "INSERT INTO movie_genres (movie_id, genre_id) VALUES (?, ?)",
+        [id, genreId]
       );
 
       await connection.commit();

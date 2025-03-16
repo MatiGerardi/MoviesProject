@@ -1,8 +1,11 @@
 import ProductCard from './ProductCard.jsx';
 import './ProductList.css';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { MoviesContext } from '../context/MoviesContext.jsx';
 
-const ProductList = ({movies}) => {
+const ProductList = () => {
+  const { movies } = useContext(MoviesContext);
+
   return (
     <>
       <div className="product-list">
@@ -16,9 +19,6 @@ const ProductList = ({movies}) => {
       </div>
     </>
   );
-};
-ProductList.propTypes = {
-  movies: PropTypes.array.isRequired,
 };
 
 export default ProductList;

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { createMovie } from "../../apiDB";
+import { addMovie } from "../../apiDB";
+import { useContext } from 'react';
+import { MoviesContext } from '../../context/MoviesContext.jsx';
+
 
 function ListOfMovies({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -8,6 +11,19 @@ function ListOfMovies({ movies }) {
   const handleMovieClick = (movie) => {
     setSelectedMovie(selectedMovie?.id === movie.id ? null : movie);
   };
+
+  const { fetchMovies } = useContext(MoviesContext);
+
+  const handleAddMovie = (movie) => {
+    try {
+      addMovie(movie);
+      alert("Película agregada correctamente");
+      fetchMovies();
+    } catch (error) {
+      console.error("Error agregando película:", error);
+    }
+  };
+
 
   return (
     <ul className="movies">
@@ -41,7 +57,7 @@ function ListOfMovies({ movies }) {
               <p>
                 <strong>Duración:</strong> {movie.runtime}
               </p>
-              <button onClick={() => createMovie(movie)}>Agregar</button>
+              <button onClick={() => handleAddMovie(movie)}>Agregar</button>
             </div>
           )}
         </li>
@@ -63,5 +79,9 @@ export function Movies({ movies }) {
 
   return hasMovies ? <ListOfMovies movies={movies} /> : <NoMoviesResults />;
 }
+
+Movies.propTypes = {
+  movies: PropTypes.array, // Permite que movies sea undefined o null, pero debe ser un array si está presente
+};
 
 export default Movies;

@@ -85,7 +85,7 @@ function SearchWindow () {
 
       <div className='movie-container'>
         {
-          loading ? <p>Cargando...</p> : <Movies movies={movies} />
+          loading ? <p>Cargando...</p> : <Movies movies={movies}/>
         }
       </div>
     </div>

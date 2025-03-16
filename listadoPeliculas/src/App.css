@@ -2,9 +2,9 @@
   --body-background: #061426;
   --header-background: #061426;
   --nav-background: #1e293b;
-  --main-background: #061426;
+  --main-background: #ff0000;
 
-  --content-background: #061426;
+  --content-background: #fffb00;
   --card-background: #061426;
   --card-hover-background: #233A59;
   --card-border: #4c566c;
@@ -65,7 +65,6 @@ a {
 main {
   flex-grow: 1;
   min-height: calc(100vh - var(--header-height));
-  background-color: var(--main-background);
   padding: 20px;
   overflow-y: auto;
 }
@@ -73,7 +72,6 @@ main {
 .content {
   max-width: 10000px;
   margin: 0 auto;
-  background-color: var(--content-background);
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;

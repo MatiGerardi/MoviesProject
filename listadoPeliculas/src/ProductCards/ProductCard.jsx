@@ -10,9 +10,10 @@ function ProductCard({ movie }) {
             {movie.title}
           </p>
           <p className="product-description">
-            <strong>año: </strong>{movie.year}<br />
-            <strong>director: </strong>{movie.director}<br />
-            <strong>duracion: </strong>{movie.duration} min
+            <strong>Año: </strong>{movie.year}<br />
+            <strong>Director: </strong>{movie.director}<br />
+            <strong>Duracion: </strong>{movie.runtime}
+            {/* <strong>Genero/s</strong>{genre}<br /> */}
           </p>
           <hr className="divider-line"/>
           <div className="product-rating">
@@ -25,7 +26,7 @@ function ProductCard({ movie }) {
               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
             </svg>
             <span className="product-rating-text">
-              {movie.rate ? movie.rate : "N/A"}
+              {movie.rating ? movie.rating : "N/A"}
             </span>
           </div>
         </div>
@@ -35,12 +36,15 @@ function ProductCard({ movie }) {
 
 ProductCard.propTypes = {
   movie: PropTypes.shape({
-    poster: PropTypes.string.isRequired,
+    id: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
+    poster: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
-    duration: PropTypes.number.isRequired,
-    rate: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    actors: PropTypes.string.isRequired,
+    plot: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+    runtime: PropTypes.string.isRequired,
   }).isRequired
 };
 

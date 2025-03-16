@@ -4,7 +4,7 @@ import { addMovie } from "../controllers/serverController.js";
 
 const router = express.Router();
 
-router.get("/movie", getMovies);// obtener peliculas
-router.post("/movie", addMovie);// agregar pelicula
+router.get("/movies", getMovies);// obtener peliculas
+router.post("/movies", addMovie);// agregar pelicula
 
 export default router;

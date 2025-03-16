@@ -2,7 +2,7 @@
 REM Cambia estas variables según sea necesario
 set MYSQL_PATH="C:\Program Files\MySQL\MySQL Server 9.0\bin\mysql.exe"
 set DATABASE_NAME=moviesdb
-set SQL_FILE="C:\Users\Matias\Documents\PaginasWeb\listadoPeliculas\sql\moviesdb.sql"
+set SQL_FILE="C:\Users\Matias\Documents\PaginasWeb\Peliculas\listadoPeliculas\sql\moviesdb.sql"
 set USERNAME=root
 set PASSWORD=43740254
 

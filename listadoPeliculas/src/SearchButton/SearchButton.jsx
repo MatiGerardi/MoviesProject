@@ -14,7 +14,7 @@ function SearchButton() {
       {searchOpen && (
         <>
         <div className="search-modal">
-          <SearchWindow></SearchWindow>
+          <SearchWindow ></SearchWindow>
         </div>
           <button className="close-btn" onClick={() => setSearchOpen(false)}>
             ✖
