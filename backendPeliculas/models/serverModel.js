@@ -44,7 +44,7 @@ export class MovieModel {
     } catch (error) {
       await connection.rollback();
       console.error("Error creando película:", error);
-      throw new Error("No se pudo crear la película.");
+      throw new Error("No se pudo crear la película en el Modelo.");
     } finally {
       connection.release();
     }

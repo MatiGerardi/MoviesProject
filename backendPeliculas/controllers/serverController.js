@@ -20,11 +20,9 @@ export const addMovie = async (req, res) => {
     }
     
     const newMovie = await MovieModel.createMovie({ id, title, year, poster, genre, director, actors, plot, rating, runtime });
-
-    // res.status(201).json(newMovie);
-    res.status(201).json({ message: "Película agregada exitosamente", movie: newMovie });
-    
+    return res.status(201).json({ message: "Película agregada exitosamente", movie: newMovie });
   } catch (error) {
-    res.status(501).json({ error: error.message });
+    console.error("Error en el Controlador:", error);
+    return res.status(501).json({ error: "Error interno del servidor", details: error.message });
   }
 };

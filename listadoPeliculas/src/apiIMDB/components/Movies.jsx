@@ -4,7 +4,6 @@ import { addMovie } from "../../apiDB";
 import { useContext } from 'react';
 import { MoviesContext } from '../../context/MoviesContext.jsx';
 
-
 function ListOfMovies({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -17,7 +16,7 @@ function ListOfMovies({ movies }) {
   const handleAddMovie = (movie) => {
     try {
       addMovie(movie);
-      alert("Película agregada correctamente");
+      alert("Película agregada correctamente 🎬");// sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
       fetchMovies();
     } catch (error) {
       console.error("Error agregando película:", error);

@@ -55,7 +55,7 @@ form {
 
 .movie button {
   background-color: var(--card-hover-background);
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 4px;
   color: white;
   cursor: pointer;

@@ -5,4 +5,6 @@ const api = axios.create({
 });
 
 export const getMovies = () => api.get('/movies');
-export const addMovie = async (data) => api.post('/movies', data);
+export const addMovie = async (movie) => {
+    api.post('/movies', movie);
+}

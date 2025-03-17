@@ -44,7 +44,7 @@ function SearchWindow () {
 
   const debouncedGetMovies = useCallback(
     debounce(search => {
-      console.log('search', search)
+      // console.log('search', search)
       getMovies({ search })
     }, 300)
     , [getMovies]

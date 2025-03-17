@@ -3,10 +3,11 @@ CREATE DATABASE moviesdb;
 USE moviesdb;
 
 -- Crear tabla movie
+-- year es un VARCHAR(10) porque las series no finalizadas retornar ej: 2022-
 CREATE TABLE `movie` (
   `id` BINARY(16) NOT NULL DEFAULT (UUID_TO_BIN(UUID())),
   `title` VARCHAR(255) NOT NULL,
-  `year` INT NOT NULL,
+  `year` VARCHAR(10) NOT NULL,
   `poster` TEXT,
   `director` VARCHAR(255) NOT NULL,
   `actors` VARCHAR(255) NOT NULL,
