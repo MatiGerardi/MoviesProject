@@ -12,13 +12,17 @@ function ListOfMovies({ movies }) {
   };
 
   const { fetchMovies } = useContext(MoviesContext);
-
-  const handleAddMovie = (movie) => {
+  // ? this function has to be async? 
+  // TODO: search another way to resolve the "problem" of the alert
+  const handleAddMovie = async (movie) => {
     try {
-      addMovie(movie);
-      alert("Película agregada correctamente 🎬");// sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
+      await addMovie(movie);
+      alert("Película agregada correctamente 🎬"); // !sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
       fetchMovies();
     } catch (error) {
+      /**
+       * * Important: this may not show anything nevere because the error is thrown in the API
+       */
       console.error("Error agregando película:", error);
     }
   };
@@ -37,7 +41,13 @@ function ListOfMovies({ movies }) {
           <img src={movie.poster} alt={movie.title} />
 
           {selectedMovie?.id === movie.id && (
+            /**
+             * TODO: Make more aesthetic the movie details
+             */
             <div className="movie-details">
+              <p>
+                <strong>ID:</strong> {movie.id}
+              </p>
               <p>
                 <strong>Género:</strong> {movie.genre}
               </p>

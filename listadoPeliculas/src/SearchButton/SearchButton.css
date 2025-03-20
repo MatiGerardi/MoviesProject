@@ -12,7 +12,7 @@
 
 /* 🔹 Modal de búsqueda */
 .search-modal {
-  position: fixed; /* Permite que esté sobre todo sin afectar el scroll */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

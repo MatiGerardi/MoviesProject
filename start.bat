@@ -1,6 +1,6 @@
 @echo off
 cd /d "C:\Users\Matias\Documents\PaginasWeb\Peliculas\backendPeliculas"
-start cmd /k "node server.js"
+start cmd /k "node --watch server.js"
 
 timeout /t 2
 
