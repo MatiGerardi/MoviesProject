@@ -1,15 +1,9 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { deleteMovie } from "../apiDB";
 import { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
 
 function ProductCard({ movie }) {
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const handleMovieClick = (movie) => {
-    setSelectedMovie(selectedMovie?.id === movie.id ? null : movie);
-  };
 
   const { fetchMovies } = useContext(MoviesContext);
   // ? this function has to be async?
@@ -64,19 +58,16 @@ function ProductCard({ movie }) {
             </span>
           </div>
           <div className="product-card-actions">
-            {selectedMovie?.id === movie.id && (
-              /**
-               * TODO: Make more aesthetic the movie details
-               */
-              <button onClick={() => handleDeleteMovie(movie)}>Eliminar</button>
-            )}
+              <strong>Plot</strong>
+              {movie.plot}
+              <button onClick={() => handleDeleteMovie(movie)}>Delete Movie</button>
           </div>
         </div>
     )
   }
 
   return (
-    <div className="product-card" onClick={() => handleMovieClick(movie)}>
+    <div className="product-card">
       <div className="product-card-content">
         <Front />
         <Back />

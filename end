@@ -1,0 +1,41 @@
+[33mcommit 3d07441c03d08c1f8c2f15baf3698223a849d27a[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sat Mar 22 20:11:13 2025 -0300
+
+    little change
+
+[33mcommit c643146a18bd5bf41ae7b52f1defa99ed67d97b2[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sat Mar 22 19:55:19 2025 -0300
+
+    refactor the delete movie boton appearence and add the movie plot to the card info
+
+[33mcommit eaebd20cb1f4356bd8c5c3593257b23af0dbeef9[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sat Mar 22 18:46:56 2025 -0300
+
+    details
+
+[33mcommit 2912a51202b16f02c0c8f0c4ca5a88d81a6b182e[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Thu Mar 20 18:30:47 2025 -0300
+
+    delete movie button working, soft refactor to the serveControl and serverModel
+
+[33mcommit 215e63659c12b56d288031a15acf619210be8657[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sun Mar 16 23:08:32 2025 -0300
+
+    chage the type of year in the sql file to include de posibility of incorporate unfished series, for example '2022-'
+
+[33mcommit ea474a38a1a6c2bef3888f81c778366fa5f26d3f[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sun Mar 16 12:57:35 2025 -0300
+
+    version with add button working
+
+[33mcommit 08c454a0e05ec927533b9985899ea25f0371fd14[m
+Author: Matias Gerardi <113802541+MatiGerardi@users.noreply.github.com>
+Date:   Sat Mar 15 10:09:03 2025 -0300
+
+    Initial commit
