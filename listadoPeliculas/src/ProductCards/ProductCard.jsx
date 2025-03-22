@@ -39,9 +39,6 @@ function ProductCard({ movie }) {
       <div className="product-info">
           <p className="product-title">{movie.title}</p>
           <p className="product-description">
-            <strong>ID: </strong>
-            {movie.id}
-            <br />
             <strong>Año: </strong>
             {movie.year}
             <br />
