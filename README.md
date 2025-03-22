@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 _______________________________________
 - TODO: 
-working nav, working menu, flip cards with more info, create a movie that no appear in the OMDB api (proximamanete), filters
+working nav, working menu, create a movie that no appear in the OMDB api (proximamanete), filters
 _______________________________________
 
 FILTER
