@@ -13,6 +13,11 @@ function Social() {
           <i className="fa-brands fa-linkedin icon"></i>
         </a>
       </li>
+      <li className="item">
+        <a href="https://github.com/MatiGerardi">
+          <i className="fa-brands fa-github icon"></i>
+        </a>
+      </li>
     </div>
   );
 }

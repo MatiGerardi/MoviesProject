@@ -28,6 +28,15 @@ export class MovieModel {
     try {
       await connection.beginTransaction();
 
+      //Verificar si la película ya existe
+      const [existingMovie] = await connection.query(
+        "SELECT id FROM movie WHERE title = ?",
+        [title]
+      );
+      if (existingMovie.length > 0) {
+        throw new Error("La película ya existe.");
+      }
+
       // Verificar si el género ya existe
       const [existingGenre] = await connection.query(
         "SELECT id FROM genre WHERE name = ?",

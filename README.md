@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 _______________________________________
 - TODO: 
-working nav, working menu, flip cards with more info, delete movie button, create a movie that no appear in the IMDB api (proximamanete), filters
+working nav, working menu, flip cards with more info, create a movie that no appear in the OMDB api (proximamanete), filters
 _______________________________________
 
 FILTER
@@ -24,16 +24,17 @@ FILTER
 })
 localhost:5000/movies?genre=Action
 _______________________________________
-cambiar clave IMDB
+
+ver la idea de actualizar la base de datos unicamente cuando se cierra
+en el miestras solo trabajar con un json
+_______________________________________
 
 .randomUDDI()
 
-ver si el async se agrega la movie antes o en el miestras esta el boton de aceptar 
-
 ver si en el POST al crear se necesitan validaciones de tipos, ver con Zod
-
-boton de DELETE, 1:24:00 (hardcodeado?) video: solucion CORS
 
 si no se usa cors, se hace a mano con config
 
-al insertar un genero nuevo, si la pelica tiene 3 generos se insertan los tres juntos, hay que separarlos
+al insertar un genero nuevo, si la pelicua tiene 3 generos se insertan los tres juntos, hay que separarlos
+
+ver TODO's 

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { addMovie } from "../../apiDB";
-import { useContext } from 'react';
-import { MoviesContext } from '../../context/MoviesContext.jsx';
+import { useContext } from "react";
+import { MoviesContext } from "../../context/MoviesContext.jsx";
 
 function ListOfMovies({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -12,7 +12,7 @@ function ListOfMovies({ movies }) {
   };
 
   const { fetchMovies } = useContext(MoviesContext);
-  // ? this function has to be async? 
+  // ? this function has to be async?
   // TODO: search another way to resolve the "problem" of the alert
   const handleAddMovie = async (movie) => {
     try {
@@ -27,7 +27,6 @@ function ListOfMovies({ movies }) {
     }
   };
 
-
   return (
     <ul className="movies">
       {movies.map((movie) => (
@@ -40,14 +39,12 @@ function ListOfMovies({ movies }) {
           <p>{movie.year}</p>
           <img src={movie.poster} alt={movie.title} />
 
+          {/* /**
+           * TODO: Make more aesthetic the movie details
+           */ }
           {selectedMovie?.id === movie.id && (
-            /**
-             * TODO: Make more aesthetic the movie details
-             */
+            console.log("id1: ", selectedMovie?.id, "id2: ", movie.id),
             <div className="movie-details">
-              <p>
-                <strong>ID:</strong> {movie.id}
-              </p>
               <p>
                 <strong>Género:</strong> {movie.genre}
               </p>
@@ -62,6 +59,15 @@ function ListOfMovies({ movies }) {
               </p>
               <p>
                 <strong>Calificación:</strong> {movie.rating}
+                <svg
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="product-star-icon"
+                  style={{ width: "15px", height: "15px" }}
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                </svg>
               </p>
               <p>
                 <strong>Duración:</strong> {movie.runtime}

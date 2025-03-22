@@ -4,12 +4,5 @@ start cmd /k "node --watch server.js"
 
 timeout /t 2
 
-cd /d "C:\Users\Matias\Documents\PaginasWeb\Peliculas\listadoPeliculas"
-start cmd /k "npm run dev"
-
-timeout /t 2
-
 cd /d "C:\Users\Matias\Documents\PaginasWeb\Peliculas"
-start cmd /k "code ."
-
-exit
+start cmd /k "code . && cd listadoPeliculas && npm run dev"

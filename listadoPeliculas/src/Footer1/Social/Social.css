@@ -55,8 +55,5 @@
   --bg-color: #0077b5;
 }
 .item:nth-child(3) {
-  --bg-color: #ff0000;
-}
-.item:nth-child(4) {
   --bg-color: #000;
 }
