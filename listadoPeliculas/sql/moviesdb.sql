@@ -39,8 +39,8 @@ CREATE TABLE `movie_genres` (
 -- INSERT INTO `movie` (`id`, `title`, `year`, `poster`, `director`, `actors`, `plot`, `rating`, `runtime`) VALUES
 -- (UUID_TO_BIN(UUID()), 'Heretic', 2024, 'https://m.media-amazon.com/images/M/MV5BMzFiMWM4YjAtY2Y3Yi00MDIzLTk0N2MtYTAwNGM3ZmMwODhlXkEyXkFqcGc@._V1_SX300.jpg', 'Scott Derrickson, Bryan Woods', 'Hugh Grant, Sophie Thatcher, Chloe East', 'wo young religious women are drawn into a game of cat-and-mouse in the house of a strange man.', 7.0, '111 min');
 
-INSERT INTO `genre` (`name`) VALUES
-('Action'),('Sci-fi'),('Thriller'), ('Drama'), ('Mystery'), ('Crime'), ('Horror');
+-- INSERT INTO `genre` (`name`) VALUES
+-- ('Action'),('Sci-fi'),('Thriller'), ('Drama'), ('Mystery'), ('Crime'), ('Horror');
 
 -- Insertar datos en la tabla movie_genres
 INSERT INTO `movie_genres` (`movie_id`, `genre_id`) VALUES
