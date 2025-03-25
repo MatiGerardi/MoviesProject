@@ -3,15 +3,35 @@ import pool from "../config/database.js";
 export class MovieModel {
   static async getAll() {
     try {
-      const [movies] = await pool.query(
-        "SELECT BIN_TO_UUID(id) AS id, title, year, poster, director, actors, plot, rating, runtime FROM movie;"
-      );
+      const [movies] = await pool.query(`
+        SELECT 
+          BIN_TO_UUID(m.id) AS id,
+          m.title,
+          m.year,
+          m.poster,
+          m.director,
+          m.actors,
+          m.plot,
+          m.rating,
+          m.runtime,
+          GROUP_CONCAT(g.name ORDER BY g.name SEPARATOR ', ') AS genre
+        FROM movie m
+        LEFT JOIN movie_genres mg ON m.id = mg.movie_id
+        LEFT JOIN genre g ON mg.genre_id = g.id
+        GROUP BY m.id, m.title, m.year, m.poster, m.director, m.actors, m.plot, m.rating, m.runtime;
+      `);
+  
+      // return movies.map(movie => ({
+      //   ...movie,
+      //   genres: movie.genres ? movie.genres.split(', ') : [] // Convertir string a array
+      // }));
       return movies;
     } catch (error) {
       console.error("Error obteniendo películas:", error);
       throw new Error("No se pudieron obtener las películas.");
     }
   }
+  
 
   static async createMovie({
     title,

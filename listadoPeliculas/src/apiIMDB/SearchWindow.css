@@ -70,6 +70,7 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: left;
   transform: translateY(100%); /*Oculto por defecto*/
   transition: transform 0.3s ease-in-out;
   z-index: 11;

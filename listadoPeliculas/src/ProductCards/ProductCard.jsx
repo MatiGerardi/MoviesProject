@@ -19,17 +19,12 @@ function ProductCard({ movie }) {
     }
   };
 
-  function Front() {
-    return (
+  return (
+    <div className="product-card">
+      <div className="product-card-content">
       <div className="product-image">
-        <img src={movie.poster} alt={movie.title} className="product-image" />
-      </div>
-    );
-  }
-
-  function Back() {
-    return (
-      <>
+          <img src={movie.poster} alt={movie.title} className="product-image" />
+        </div>
         <div className="product-info">
           <p className="product-title">{movie.title}</p>
           <p className="product-description">
@@ -42,7 +37,9 @@ function ProductCard({ movie }) {
             <strong>Runtime: </strong>
             {movie.runtime}
             <br />
-            {/* <strong>Genero/s</strong>{genre}<br /> */}
+            <strong>Genre/s: </strong>
+            {movie.genre}
+            <br />
           </p>
           <hr className="divider-line" />
           <div className="product-rating">
@@ -58,7 +55,13 @@ function ProductCard({ movie }) {
               {movie.rating ? movie.rating : "N/A"}
             </span>
           </div>
-          <div style = {{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <p>Hover for more ...</p>
           </div>
         </div>
@@ -70,15 +73,6 @@ function ProductCard({ movie }) {
           </div>
           <button onClick={() => handleDeleteMovie(movie)}>Delete Movie</button>
         </div>
-      </>
-    );
-  }
-
-  return (
-    <div className="product-card">
-      <div className="product-card-content">
-        <Front />
-        <Back />
       </div>
     </div>
   );
@@ -95,6 +89,7 @@ ProductCard.propTypes = {
     plot: PropTypes.string.isRequired,
     rating: PropTypes.string.isRequired,
     runtime: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
   }).isRequired,
 };
 

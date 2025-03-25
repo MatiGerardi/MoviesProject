@@ -3,6 +3,7 @@ import { MovieModel } from "../models/serverModel.js";
 export const getMovies = async (req, res) => {
   try {
     const movies = await MovieModel.getAll();
+    console.log("/serverController Movies:", movies);
     res.json(movies);
   } catch (error) {
     res.status(500).json({ error: error.message });

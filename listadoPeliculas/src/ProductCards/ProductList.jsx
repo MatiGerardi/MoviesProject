@@ -13,7 +13,8 @@ const ProductList = () => {
         <p>No hay películas disponibles</p>
       ) : (
         movies.map((movie) => (
-          <ProductCard key={`${movie.title}-${movie.year}`} movie={movie} />
+          // <ProductCard key={`${movie.title}-${movie.year}`} movie={movie} />
+          <ProductCard key={movie.id} movie={movie} />
         ))
       )}
       </div>
