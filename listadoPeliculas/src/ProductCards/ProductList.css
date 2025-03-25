@@ -104,10 +104,10 @@
   font-size: 16px;
   padding: 10px 15px;
   margin-top: 15px;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   transition: background-color 0.3s ease;
 }
 
 .product-card-actions button:hover {
-  background-color: var(--card-background);
+  background-color: var(--card-hover-background);
 }

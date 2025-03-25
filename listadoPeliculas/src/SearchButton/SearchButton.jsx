@@ -8,7 +8,7 @@ function SearchButton() {
   return (
     <>
       <button className="search-btn" onClick={() => setSearchOpen(true)}>
-        Buscar
+        Search
       </button>
 
       {searchOpen && (

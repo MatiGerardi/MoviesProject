@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
 
 function ProductCard({ movie }) {
-
   const { fetchMovies } = useContext(MoviesContext);
   // ? this function has to be async?
   // TODO: search another way to resolve the "problem" of the alert
@@ -23,24 +22,26 @@ function ProductCard({ movie }) {
   function Front() {
     return (
       <div className="product-image">
-      <img src={movie.poster} alt={movie.title} className="product-image" />
+        <img src={movie.poster} alt={movie.title} className="product-image" />
       </div>
     );
   }
 
-  function Back(){
+  function Back() {
     return (
-      <div className="product-info">
+      <>
+        <div className="product-info">
           <p className="product-title">{movie.title}</p>
           <p className="product-description">
-            <strong>Año: </strong>
+            <strong>Year: </strong>
             {movie.year}
             <br />
             <strong>Director: </strong>
             {movie.director}
             <br />
-            <strong>Duracion: </strong>
+            <strong>Runtime: </strong>
             {movie.runtime}
+            <br />
             {/* <strong>Genero/s</strong>{genre}<br /> */}
           </p>
           <hr className="divider-line" />
@@ -57,13 +58,20 @@ function ProductCard({ movie }) {
               {movie.rating ? movie.rating : "N/A"}
             </span>
           </div>
-          <div className="product-card-actions">
-              <strong>Plot</strong>
-              {movie.plot}
-              <button onClick={() => handleDeleteMovie(movie)}>Delete Movie</button>
+          <div style = {{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <p>Hover for more ...</p>
           </div>
         </div>
-    )
+        <div className="product-card-actions">
+          <div className="product-description">
+            <strong>Plot</strong>
+            <br />
+            {movie.plot}
+          </div>
+          <button onClick={() => handleDeleteMovie(movie)}>Delete Movie</button>
+        </div>
+      </>
+    );
   }
 
   return (

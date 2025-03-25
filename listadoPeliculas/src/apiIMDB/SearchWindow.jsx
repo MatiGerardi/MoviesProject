@@ -1,7 +1,7 @@
 import './SearchWindow.css'
 import { useMovies } from './hooks/useMovies.js'
 import { Movies } from './components/Movies.jsx'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef} from 'react'
 import debounce from 'just-debounce-it'
 
 function useSearch () {
@@ -42,13 +42,12 @@ function SearchWindow () {
   const { search, updateSearch, error } = useSearch()
   const { movies, loading, getMovies } = useMovies({ search, sort })
 
-  const debouncedGetMovies = useCallback(
-    debounce(search => {
-      // console.log('search', search)
-      getMovies({ search })
+  const debouncedGetMovies = useRef(
+    debounce((search) => {
+      getMovies({ search });
     }, 300)
-    , [getMovies]
-  )
+  ).current;
+  
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -69,7 +68,7 @@ function SearchWindow () {
     <div className='page'>
 
       <div className='movie-search-header'>
-        <h1>Buscador de películas</h1>
+        <h1>Movie Search Engine</h1>
         <form className='form' onSubmit={handleSubmit}>
           <input
             style={{
@@ -78,14 +77,14 @@ function SearchWindow () {
             }} onChange={handleChange} value={search} name='query' placeholder='Avengers, Star Wars, The Matrix...'
           />
           <input type='checkbox' onChange={handleSort} checked={sort}/>      
-          <button type='submit'>Buscar</button>
+          <button type='submit'>Search</button>
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
 
       <div className='movie-container'>
         {
-          loading ? <p>Cargando...</p> : <Movies movies={movies}/>
+          loading ? <p>Loading...</p> : <Movies movies={movies}/>
         }
       </div>
     </div>

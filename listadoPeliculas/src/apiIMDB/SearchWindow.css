@@ -67,3 +67,9 @@ form {
 .movie button:hover {
   background-color: darken(var(--card-hover-background), 10%);
 }
+
+.product-star-icon {
+  width: 15px;
+  height: 15px;
+  fill: #f6ad55;
+}
