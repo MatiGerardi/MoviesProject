@@ -1,15 +1,9 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import { addMovie } from "../../apiDB";
 import { useContext } from "react";
 import { MoviesContext } from "../../context/MoviesContext.jsx";
 
 function ListOfMovies({ movies }) {
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const handleMovieClick = (movie) => {
-    setSelectedMovie(selectedMovie?.id === movie.id ? null : movie);
-  };
 
   const { fetchMovies } = useContext(MoviesContext);
   // ? this function has to be async?
@@ -33,48 +27,28 @@ function ListOfMovies({ movies }) {
         <li
           className="movie"
           key={movie.id}
-          onClick={() => handleMovieClick(movie)}
         >
           <h3>{movie.title}</h3>
           <p>{movie.year}</p>
           <img src={movie.poster} alt={movie.title} />
-
-          {/* /**
-           * TODO: Make more aesthetic the movie details
-           */ }
-          {selectedMovie?.id === movie.id && (
-            console.log("id1: ", selectedMovie?.id, "id2: ", movie.id),
-            <div className="movie-details">
-              <p>
-                <strong>Género:</strong> {movie.genre}
-              </p>
-              <p>
-                <strong>Director:</strong> {movie.director}
-              </p>
-              <p>
-                <strong>Actores:</strong> {movie.actors}
-              </p>
-              <p>
-                <strong>Sinopsis:</strong> {movie.plot}
-              </p>
-              <p>
-                <strong>Calificación:</strong> {movie.rating}
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="product-star-icon"
-                  style={{ width: "15px", height: "15px" }}
-                >
-                  <path d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                </svg>
-              </p>
-              <p>
-                <strong>Duración:</strong> {movie.runtime}
-              </p>
-              <button onClick={() => handleAddMovie(movie)}>Agregar</button>
-            </div>
-          )}
+          <div className="movie-details">
+            <p>
+              <strong>Rating:</strong> {movie.rating}
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="product-star-icon"
+                style={{ width: "15px", height: "15px" }}
+              >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+              </svg>
+            </p>
+            <p>
+              <strong>Runtime:</strong> {movie.runtime}
+            </p>
+            <button onClick={() => handleAddMovie(movie)}>Add Movie</button>
+          </div>
         </li>
       ))}
     </ul>

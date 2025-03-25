@@ -12,6 +12,7 @@
   background-color: var(--card-background);
   margin: 15px;
   flex: 1 1 calc(30% - 16px);
+  /* for the hover */
   overflow: hidden;
   transition: transform 0.3s ease;
   position: relative;
@@ -20,7 +21,6 @@
 
 .product-card:hover {
   transform: scale(1.05);
-  background-color: var(--card-hover-background);
   transition: all 0.3s ease-out 0s;
 }
 
@@ -77,6 +77,7 @@
 }
 
 .product-card-actions {
+  border-radius: 8px;
   position: absolute;
   top: 0;
   left: 0;
@@ -84,12 +85,12 @@
   background-color: rgba(0, 0, 0, 0.7);
   padding: 15px;
   display: flex;
-  align-items: center; /* Centra verticalmente */
-  justify-content: center; /* Centra horizontalmente */
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   transform: translateY(-100%); /* Oculto por defecto */
   transition: transform 0.3s ease-in-out;
-  z-index: 10;
+  z-index: 5;
 }
 
 .product-card:hover .product-card-actions {
@@ -105,7 +106,7 @@
   padding: 10px 15px;
   margin-top: 15px;
   /* background-color: var(--primary-color); */
-  transition: background-color 0.3s ease;
+  transition: background-color 0.15s ease;
 }
 
 .product-card-actions button:hover {

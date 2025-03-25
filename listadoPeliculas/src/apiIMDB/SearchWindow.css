@@ -7,6 +7,10 @@
   max-width: 800px;
 }
 
+.movie-search-header{
+  margin: 15px;
+}
+
 .movie-container {
   display: flex;
   justify-content: center;
@@ -33,9 +37,10 @@ form {
 
 .movie {
   text-align: center;
-}
-
-.movie:hover {
+  /* for the hover */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
   cursor: pointer;
 }
 
@@ -45,12 +50,33 @@ form {
 
 .movie img {
   border-radius: 8px;
-  margin-top: 16px;
+  margin-top: 15px;
 }
 
-.movie:hover img {
+.movie:hover{
   transform: scale(1.05);
   transition: all 0.3s ease-out 0s;
+}
+
+.movie-details{
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateY(100%); /*Oculto por defecto*/
+  transition: transform 0.3s ease-in-out;
+  z-index: 11;
+}
+
+.movie:hover .movie-details {
+  transform: translateY(-35%); /* Baja cuando el usuario hace hover */
 }
 
 .movie button {
@@ -61,7 +87,8 @@ form {
   cursor: pointer;
   font-size: 16px;
   padding: 10px 15px;
-  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  transition: background-color 0.15s ease;
 }
 
 .movie button:hover {
