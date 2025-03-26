@@ -21,11 +21,6 @@ export class MovieModel {
         GROUP BY m.id, m.title, m.year, m.poster, m.director, m.actors, m.plot, m.rating, m.runtime
         ORDER BY m.id DESC;
       `);
-  
-      // return movies.map(movie => ({
-      //   ...movie,
-      //   genres: movie.genres ? movie.genres.split(', ') : [] // Convertir string a array
-      // }));
       return movies;
     } catch (error) {
       console.error("Error obteniendo películas:", error);
