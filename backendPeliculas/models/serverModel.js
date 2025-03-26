@@ -18,7 +18,8 @@ export class MovieModel {
         FROM movie m
         LEFT JOIN movie_genres mg ON m.id = mg.movie_id
         LEFT JOIN genre g ON mg.genre_id = g.id
-        GROUP BY m.id, m.title, m.year, m.poster, m.director, m.actors, m.plot, m.rating, m.runtime;
+        GROUP BY m.id, m.title, m.year, m.poster, m.director, m.actors, m.plot, m.rating, m.runtime
+        ORDER BY m.id DESC;
       `);
   
       // return movies.map(movie => ({
