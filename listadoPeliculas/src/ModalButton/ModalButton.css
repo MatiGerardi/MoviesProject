@@ -10,7 +10,6 @@
   color: rgb(255 255 255 / 30%);
 }
 
-/* 🔹 Modal de búsqueda */
 .search-modal {
   position: fixed;
   top: 0;
@@ -24,9 +23,8 @@
   align-items: center;
   justify-content: flex-start;
   padding: 40px 20px;
-  color: white;
-  z-index: 10; /* Asegura que esté encima */
-  overflow-y: auto; /* Permite hacer scroll si el contenido es largo */
+  z-index: 10;
+  overflow-y: auto;
 }
 
 /* 🔹 Botón cerrar */

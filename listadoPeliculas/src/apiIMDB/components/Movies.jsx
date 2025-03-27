@@ -17,7 +17,7 @@ function ListOfMovies({ movies }) {
       fetchMovies();
     } catch (error) {
       /**
-       * * Important: this may not show anything nevere because the error is thrown in the API
+       * * Important: this may not show anything never(?) because the error is thrown in the API
        */
       console.error("Error agregando película:", error);
     }

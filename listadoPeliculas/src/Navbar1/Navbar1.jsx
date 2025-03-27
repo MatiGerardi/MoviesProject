@@ -29,8 +29,6 @@ function Navbar1() {
         <img src="/src/Navbar1/icon.svg" alt="title-logo" />
         <div className="nav-items">
           <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Products</a>
           <a href="#footer">Contact</a>
         </div>
       </nav>

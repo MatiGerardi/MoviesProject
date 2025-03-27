@@ -1,7 +1,4 @@
 import PropTypes from "prop-types";
-// import { deleteMovie, addMovie } from "../apiDB";
-// import { useContext } from "react";
-// import { MoviesContext } from "../context/MoviesContext";
 import "./ProductCard.css";
 
 function ProductCard({ movie, onButtonClick, buttonText }) {

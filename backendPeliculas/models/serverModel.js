@@ -43,30 +43,45 @@ export class MovieModel {
     const connection = await pool.getConnection();
     try {
       await connection.beginTransaction();
-
+  
       // Verificar si la película ya existe
       const [existingMovie] = await connection.query(
         "SELECT id FROM movie WHERE title = ?",
         [title]
       );
+  
+      let movieId;
       if (existingMovie.length > 0) {
-        throw new Error("La película ya existe.");
+        // Si la película ya existe, actualizar sus datos
+        movieId = existingMovie[0].id;
+  
+        await connection.query(
+          `UPDATE movie 
+           SET year = ?, poster = ?, director = ?, actors = ?, plot = ?, rating = ?, runtime = ?
+           WHERE id = ?`,
+          [year, poster, director, actors, plot, rating, runtime, movieId]
+        );
+  
+        // Eliminar géneros antiguos antes de insertar los nuevos
+        await connection.query("DELETE FROM movie_genres WHERE movie_id = ?", [
+          movieId,
+        ]);
+      } else {
+        // Si no existe, insertarla
+        const [result] = await connection.query(
+          "INSERT INTO movie (id, title, year, poster, director, actors, plot, rating, runtime) VALUES (UUID_TO_BIN(UUID()), ?, ?, ?, ?, ?, ?, ?, ?)",
+          [title, year, poster, director, actors, plot, rating, runtime]
+        );
+  
+        // Obtener el ID de la nueva película
+        const [movieIdResult] = await connection.query(
+          "SELECT id FROM movie WHERE title = ?",
+          [title]
+        );
+        movieId = movieIdResult[0].id;
       }
-
-      // Insertar la nueva película
-      const [result] = await connection.query(
-        "INSERT INTO movie (id, title, year, poster, director, actors, plot, rating, runtime) VALUES (UUID_TO_BIN(UUID()), ?, ?, ?, ?, ?, ?, ?, ?)",
-        [title, year, poster, director, actors, plot, rating, runtime]
-      );
-
-      // Recuperar el id de la película recién insertada
-      const [movieIdResult] = await connection.query(
-        "SELECT id FROM movie WHERE title = ?",
-        [title]
-      );
-      const movieId = movieIdResult[0].id;
-
-      // Manejar múltiples géneros
+  
+      // Manejar los géneros
       const genres = genre.split(",").map((g) => g.trim());
       for (const g of genres) {
         const [existingGenre] = await connection.query(
@@ -84,17 +99,17 @@ export class MovieModel {
         } else {
           genreId = existingGenre[0].id;
         }
-
-        // Insertar en la tabla movie_genres
+  
+        // Insertar la nueva relación en movie_genres
         await connection.query(
           "INSERT INTO movie_genres (movie_id, genre_id) VALUES (?, ?)",
           [movieId, genreId]
         );
       }
-
+  
       await connection.commit();
       return {
-        id: result.insertId,
+        id: movieId,
         title,
         year,
         poster,
@@ -107,12 +122,13 @@ export class MovieModel {
       };
     } catch (error) {
       await connection.rollback();
-      console.error("Error creando película:", error);
-      throw new Error("No se pudo crear la película en el Modelo.");
+      console.error("Error creando o actualizando película:", error);
+      throw new Error("No se pudo crear o actualizar la película en el Modelo.");
     } finally {
       connection.release();
     }
   }
+  
 
   static async deleteMovie({ id }) {
     const connection = await pool.getConnection();
