@@ -19,7 +19,7 @@ function NewForm() {
     const newMovie = {
       title,
       year,
-      poster: "https://fakeimg.pl/400x600?text=Coming+Soon&font=bebas",
+      poster: "https://fakeimg.pl/400x600?text=Coming+soon&font=bebas&font_size=64",
       genre: "-",
       director: "-",
       actors: "-",

@@ -8,12 +8,10 @@ import { MoviesContext } from "../../context/MoviesContext.jsx";
 function ListOfMovies({ movies }) {
 
   const { fetchMovies } = useContext(MoviesContext);
-  // ? this function has to be async?
-  // TODO: search another way to resolve the "problem" of the alert
   const handleAddMovie = async (movie) => {
     try {
       await addMovie(movie);
-      alert("Película agregada correctamente 🎬"); // !sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
+      alert("Película agregada correctamente 🎬"); // !sino el fetch se hace muy rapido no llega a gregar la nueva pelicula, o await new Promise((resolve) => setTimeout(resolve, 500)); 
       fetchMovies();
     } catch (error) {
       /**

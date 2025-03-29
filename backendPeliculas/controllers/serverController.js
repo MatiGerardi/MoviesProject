@@ -1,4 +1,5 @@
 import { MovieModel } from "../models/serverModel.js";
+import { validateMovie } from "../schemas/zodSchema.js";
 
 export const getMovies = async (req, res) => {
   try {
@@ -9,16 +10,15 @@ export const getMovies = async (req, res) => {
   }
 };
 
-/** 
- * TODO: validate duplicate movies
- */
 export const addMovie = async (req, res) => {
   try {
-    const {title, year, poster, genre, director, actors, plot, rating, runtime } = req.body;
-    
-    if (!title || !year || !poster || !genre || !director || !actors || !plot || !rating || !runtime) {
-      return res.status(400).json({ error: "Datos Erroneos" });
+    const result = validateMovie(req.body)
+
+    if (!result.success) {
+      return res.status(400).json({ error: JSON.parse(result.error.message) })
     }
+
+    const {title, year, poster, genre, director, actors, plot, rating, runtime} = req.body
     
     const newMovie = await MovieModel.createMovie({ title, year, poster, genre, director, actors, plot, rating, runtime });
     return res.status(201).json({ message: "Película agregada exitosamente", movie: newMovie });

@@ -12,7 +12,8 @@ const ProductList = () => {
     if (window.confirm("¿Are you sure about that?")) {
       try {
         await deleteMovie(movie.id);
-        alert("Película eliminada correctamente 🎬"); // !sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
+        // alert("Película eliminada correctamente 🎬"); // !sino el fetch se hace muy rapido no llega a gregar la nueva pelicula
+      await new Promise((resolve) => setTimeout(resolve, 500)); 
         fetchMovies();
       } catch (error) {
         console.error("Error eliminando película:", error);

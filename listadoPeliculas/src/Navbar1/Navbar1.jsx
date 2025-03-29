@@ -28,7 +28,6 @@ function Navbar1() {
       <nav className={`navbar-1 ${isVisible ? "visible" : ""} `}>
         <img src="/src/Navbar1/icon.svg" alt="title-logo" />
         <div className="nav-items">
-          <a href="#">About</a>
           <a href="#footer">Contact</a>
         </div>
       </nav>
