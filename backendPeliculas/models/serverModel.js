@@ -123,7 +123,7 @@ export class MovieModel {
     } catch (error) {
       await connection.rollback();
       console.error("Error creando o actualizando película:", error);
-      throw new Error("No se pudo crear o actualizar la película en el Modelo.");
+      throw new Error("No se pudo crear o actualizar la película desde el Modelo con la Base de Datos.");
     } finally {
       connection.release();
     }

@@ -20,12 +20,12 @@ function NewForm() {
       title,
       year,
       poster: "https://fakeimg.pl/400x600?text=Coming+soon&font=bebas&font_size=64",
-      genre: "-",
-      director: "-",
-      actors: "-",
-      plot: "-",
+      genre: "N/A",
+      director: "N/A",
+      actors: "N/A",
+      plot: "N/A",
       rating: "0.0",
-      runtime: "-",
+      runtime: "N/A",
     };
 
     try {
